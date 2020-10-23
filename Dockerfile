@@ -1,7 +1,11 @@
-FROM node:12
+FROM node:latest
 WORKDIR /usr/src/app
+RUN mkdir -p models
+RUN mkdir -p api
 COPY package*.json ./
 RUN npm install
-COPY . .
-EXPOSE 5000
-CMD ["node","index.js"]
+COPY index.js ./
+COPY ./api/person.js ./api
+COPY ./models/person.js ./models
+EXPOSE $PORT
+CMD [ "node", "index.js" ]

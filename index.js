@@ -1,11 +1,11 @@
-const connectString = `mongodb+srv://donnukrit:${password}@cluster0.q3nd7.mongodb.net/${dbname}?retryWrites=true&w=majority`
 const password = ""
 const dbname = ""
+const connectString = `mongodb+srv://donnukrit:${password}@cluster0.q3nd7.mongodb.net/${dbname}?retryWrites=true&w=majority`
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express()
 const HOST = '0.0.0.0'
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8080
 
 mongoose.connect(
     connectString, {
