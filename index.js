@@ -3,6 +3,7 @@ const dbname = ""
 const connectString = `mongodb+srv://donnukrit:${password}@cluster0.q3nd7.mongodb.net/${dbname}?retryWrites=true&w=majority`
 const express = require("express")
 const mongoose = require("mongoose")
+const cors = require("cors")
 const app = express()
 const HOST = '0.0.0.0'
 const PORT = process.env.PORT || 8080
@@ -20,7 +21,7 @@ db.once("open", function callback() {
 
     console.log("Success to Connecting with Mongo Atlas")
 })
-
+app.use(cors())
 app.use(express.json())
 app.get("/", (req, res) => {
     res.json({
